@@ -1,0 +1,20 @@
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+  <div class="mdl-card mdl-cell mdl-cell--12-col">
+      <div class="mdl-card__title">
+          <h3>Results</h3>
+        </div>
+    <div class="mdl-card__supporting-text">
+      <h4>Your answered {{result.score}} questions correctly</h4>
+      <div *ngIf="result.solution.size > 0">
+      <p>Solution for incorrectly answered questions - </p>
+      <p *ngFor=" let key of result.solution.keys()"> Correct answer for question <span class="mdl-color-text--primary-dark">{{key}}</span> is <span class="mdl-color-text--accent">{{result.solution.get(key)}}</span></p>
+    </div>
+    </div>
+    <div class="mdl-card__actions"> 
+      
+      <nav>
+        <button routerLink='/start' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-js-ripple-effect mdl-button--bottom-right">Restart</button>
+      </nav>
+    </div>
+  </div>
+</section>
