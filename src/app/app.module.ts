@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { QuestionService } from './question.service';
 import { ResultsComponent } from './results/results.component';
 import { ResultsService } from './results.service';
+import { TimerComponent } from './timer/timer.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { ResultsService } from './results.service';
     AppComponent,
     StartComponent,
     QuestionComponent,
-    ResultsComponent
+    ResultsComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,

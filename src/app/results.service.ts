@@ -14,7 +14,7 @@ export class ResultsService {
   submittedAnswers:Map<number,number>;
   
   constructor(private questionService: QuestionService) {
-    this.submittedAnswers= new Map<number,number>();    
+    this.reset();
    }
 
   submit():Result{
@@ -29,7 +29,7 @@ export class ResultsService {
         this.incorrectSubmissions.set(questionAnswerTuple[0],questionAnswerTuple[1]);
       }
   });
-  //return this.incorrectSubmissions;
+  
 
   let result:Result = new Result();
   result.score=score;
@@ -39,6 +39,10 @@ export class ResultsService {
 
   markOption(questionId:number, selectedOption:number){
     this.submittedAnswers.set(questionId,selectedOption);
+  }
+
+  reset(){
+    this.submittedAnswers= new Map<number,number>();
   }
 
 }

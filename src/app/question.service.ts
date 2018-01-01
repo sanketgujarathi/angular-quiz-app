@@ -48,4 +48,16 @@ export class QuestionService {
   getQuestionAnswerTuple(questionId:number,optionId:number):[string, string]{
     return [this.question[questionId].text,this.question[questionId].options[optionId]];
   }
+
+  reset(){
+    this.index=-1;
+  }
+
+  isFirst():boolean{
+    return this.index==0;
+  }
+
+  isLast():boolean{
+    return this.index==this.question.length - 1;
+  }
 }

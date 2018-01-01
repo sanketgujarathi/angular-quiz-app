@@ -13,19 +13,30 @@ export class QuestionComponent implements OnInit {
 
   question:Question;
   markedOptions:Map<number,number>;
+  isFirst:boolean;
+  isLast:boolean;
   constructor(private questionService:QuestionService, private resultsService:ResultsService) { }
 
   ngOnInit() {
+    this.resultsService.reset();
+    this.questionService.reset();
     this.question=this.questionService.next();
     this.markedOptions = new Map<number,number>();
+    this.isFirst=true;
+    this.isLast=false;
   }
 
   next(){
     this.question=this.questionService.next();
+    this.isFirst=this.questionService.isFirst();
+    this.isLast=this.questionService.isLast();
+
   }
 
   prev(){
     this.question=this.questionService.prev();
+    this.isFirst=this.questionService.isFirst();
+    this.isLast=this.questionService.isLast();
   }
 
   mark(selectedOption:number){

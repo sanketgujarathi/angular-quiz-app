@@ -1,19 +1,22 @@
 <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
-  <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div id="question" class="mdl-card mdl-cell mdl-cell--12-col">
+      <div id="timer">
+          <app-timer></app-timer>
+        </div>
     <div class="mdl-card__supporting-text">
       <h4>{{question.id}}. {{question.text}}</h4>
       <form>
         <div *ngFor="let option of question.options; index as i">
           <label class="demo-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="options">
-            <input type='radio' [checked]="i == markedOptions.get(question.id)" name='options' value="{{i}}" (click)="mark(i)" class="mdl-radio__button">{{option}} 
+            <input type='radio' [checked]="i == markedOptions.get(question.id)" name='options' value="{{i}}" (click)="mark(i)" class="mdl-radio__button">{{option}}
           </label>
         </div>
       </form>
 
     </div>
     <div class="mdl-card__actions">
-      <button (click)="prev()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-js-ripple-effect">Previous</button> 
-      <button (click)="next()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-js-ripple-effect pull right">Next</button>
+      <button (click)="prev()" [disabled]="isFirst" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-js-ripple-effect">Previous</button>&nbsp;&nbsp;
+      <button (click)="next()" [disabled]="isLast" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-js-ripple-effect pull right">Next</button>
       <div class="mdl-layout-spacer"></div>
       <nav>
         <button routerLink='/results' class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-js-ripple-effect">Submit</button>
