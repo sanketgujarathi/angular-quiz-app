@@ -20,7 +20,6 @@ export class TimerComponent implements OnInit {
   }
 
   calculateRemainingTime(){
-    console.log("Hello");
     if(!(this.remainingTime[0]==0 && this.remainingTime[1]==0)){
     if (this.remainingTime[1]==0) {
         this.remainingTime[1] = 59;
